@@ -343,17 +343,26 @@ Md Hasibur Rahman
 <p>Birthday: December 10, 1996<br>
 Hometown: Dhaka<br>
 Country: Bangladesh<br>
-Program : PhD in Statistics<br>
-Expected Graduation: 2029</p>
+Program : PhD in Statistics</p>
+<p>Institution: University of Nebraska-Lincoln</p>
 </section>
-<section class="slide level2">
-
+<section id="expected-graduation-2029" class="slide level2">
+<h2>Expected Graduation: 2029</h2>
 </section></section>
 <section>
 <section id="my-favourite-animal" class="title-slide slide level1 center">
 <h1>My Favourite Animal</h1>
-
-<img data-src="panda.webp" style="width:80.0%" class="r-stretch"></section>
+<p><img data-src="panda.jpg" style="width:80.0%"> # My Favorite Plot</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="resume" class="slide level2">
 <h2>Resume</h2>
 <ul>
@@ -575,6 +584,82 @@ Expected Graduation: 2029</p>
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
